@@ -143,7 +143,7 @@ def get_server_side_cookie(request, cookie, default_va = None):
     return val
     
 def visitor_cookie_handler(request, response):
-    visits = int(get_server_side_cookie(request,'visits','1')
+    visits = int(get_server_side_cookie(request,'visits','1'))
 
     last_visit_cookie = request.COOKIES.get('last_visit',str(datetime.now()))
     last_visit_time = datetime.strptime(last_visit_cookie[:-7],
