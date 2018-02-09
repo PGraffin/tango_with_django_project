@@ -10,6 +10,7 @@
 		
         <h1>Add a Page to {{category.name}}</h1>
 
+	{% if user.is_authenticated %}  
         <form id="page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
 
             {% csrf_token %}
@@ -29,7 +30,9 @@
 		{% else %}
 			The specified category does not exist!
 		{% endif%}
-		  
+	{% else %}
+		You are not registered.
+	{% endif %}    
 		  
 		  
 		</div>	

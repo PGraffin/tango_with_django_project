@@ -7,6 +7,7 @@
 {% block body_block %}
 		<h1>Add a Category</h1>
 		<div>
+		{% if user.is_authenticated %}    
 			<form id="category_form" method="post" action="{% url 'add_category' %}">
 				{% csrf_token %}
 				{% for hidden in form.hidden_fields %}
@@ -18,6 +19,9 @@
 					{{ field }}
 				{% endfor %}
 				<input type="submit" name="submit" value="Create Category" />
+		{% else %}
+			You are not registered
+		{% endif %}
 			</form>
 		</div>
 {% endblock %}
